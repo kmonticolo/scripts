@@ -1,0 +1,11 @@
+xrandr --output DVI-0 --auto --left-of DVI-1 # 2 ekrany openbsd - dualhead openbsd
+# wysylka klucza na zdalny serwer
+# w ~/.bashrc funkcja key:
+# key() { cat ~/.ssh/id_rsa.pub | ssh "$@" 'mkdir ~/.ssh; cat - >> ~/.ssh/authorized_keys' ;}
+# i teraz key serwer wysyla klucz na serwer
+
+# cat ~/.ssh/id_rsa.pub | ssh poltmsapp01 'mkdir ~/.ssh; cat - >> ~/.ssh/authorized_keys'
+
+# lista aliasow dla hostow ssh ; plik 2polhosty wyciag z nagiosa
+#for i in `cat 2polhosty |sed -e 's/^pol//g' -e 's/\..*$//'`;do echo  Host $i ;echo  HostName  pol${i}.polcard.com.pl;done >> ~/.ssh/config 
+
