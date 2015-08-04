@@ -1,0 +1,47 @@
+odpalanie ponizszych komend i narzedziem wycinanie do evidence:
+echo \# ACL
+#plik: <server>-acl
+ if [[ -f /etc/sssd/sssd.conf ]]; then grep simple_allow $_ ; fi
+
+echo \# AV
+#plik: <server>-av
+ if [[ -r /etc/cron.daily/freshclam ]]; then grep -v ^# $_ | sed '/^$/d';fi
+
+ grep -v ^# /etc/cron.daily/freshclam | sed '/^$/d'
+
+echo \# chkconfig
+#plik: <server>-chkconfig
+ chkconfig --list|grep --color -w on
+
+echo \# netstat
+#plik: <server>-netstat
+ netstat -ntlp
+
+echo \# password settings
+#plik: <server>-password-settings
+ grep ^PASS /etc/login.defs && echo; grep ^password /etc/pam.d/system-auth
+
+echo \# -patch-level
+#plik: <server>-patch-level
+cat /etc/*-release*
+
+echo \# shadow perm
+#plik: <server>-shadow
+ls -al /etc/shadow
+
+echo \# shell timeout 
+#plik: <server>-timeout
+grep TMOUT /etc/bashrc
+readonly TMOUT=900
+
+echo \# time synch
+#plik: <server>-timesynch
+grep -v ^\# /etc/ntp.conf | grep -v ^$;echo; ps -fC ntpd
+
+
+# ewentualnie
+certyfikat i konfiguracja SSL
+# config i certyfikat
+grep -v ^# /etc/httpd/conf.d/ssl.conf | sed '/^$/d'
+
+tail -50 /var/log/httpd/ssl_access_log
