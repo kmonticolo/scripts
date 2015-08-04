@@ -1,0 +1,14 @@
+[root@kgclient02 log]# if [[ ! `grep -q create /etc/logrotate.d/keygun` ]]; then sed -i.bak '/compress/a \ \ \ \ create 0640 root root' /etc/logrotate.d/keygun ;fi
+[root@kgclient02 log]# diff -u /etc/logrotate.d/keygun.bak /etc/logrotate.d/keygun && rm  /etc/logrotate.d/keygun.bak
+--- /etc/logrotate.d/keygun.bak 2014-12-12 12:33:26.807012629 +0100
++++ /etc/logrotate.d/keygun     2014-12-12 12:33:45.974767638 +0100
+@@ -6,6 +6,7 @@
+ #       /usr/sbin/accton
+ #   endscript
+     compress
++    create 0640 root root
+     notifempty
+     rotate 99999
+     daily
+[root@kgclient02 log]# chmod 0640 /var/log/keygun.log*
+
