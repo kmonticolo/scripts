@@ -1,9 +1,11 @@
 #!/bin/bash
 
 # kmonti 04.08.15
+# get the list of toptalkers from nagios server:
+# root@nagios archives]# export LC_LANG=C;grep -i "kmonticolo.*notify-by-email;PROCS" /usr/local/nagios/var/archives/nagios-07-*2015*|cut -d\; -f 2|sort |uniq -c|sort -rn|head
 # script changes process counts in NRPE Nagios configuration
 # skrypt zmienia (dodaje lub odejmuje o zadany parametr) liczbe procesow w konfiguracji procs nrpe
-# ansible hosts -m script -a "./scrprocnrpe.sh 30" -s -K
+# example run: ansible hosts -m script -a "./scrprocnrpe.sh 30" -s -K
 
 nrpe=/etc/nagios/nrpe.cfg
 unset rollback
