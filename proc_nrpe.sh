@@ -34,7 +34,7 @@ if ! [[ $mod =~ $re ]] ; then
       echo -n "aktualne: `ps aux|wc -l`, warning: $warn, critical: $crit"
       exit 0
    fi
-   echo "error: Not a number" >&2; exit 2
+   echo "error: Not a number, user a number or spr" >&2; exit 2
 fi
 [[ $rollback ]] && { 
   mv -f ${nrpe}.old  $nrpe
