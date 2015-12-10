@@ -9,6 +9,7 @@ echo -n "wait" `echo "( $wait * 3 )"| bc` "seconds."
 for i in `cat serwery`;do j=`ping -c3 $i|grep round| cut -d \/ -f 5|cut -f1 -d .`; \
 echo -n $i" "$j >>pingidoserwerow; echo -n .; echo >>pingidoserwerow;done
 #grep round pingidoserwerow |sed -e s'/\//\;/g' -e 's/\./,/g'
+echo
+cat pingidoserwerow |grep [0-9]$ | sort -nk 2 |sed 's/$/\ ms/g'
 
-cat pingidoserwerow |grep [0-9]$ | sort -nk 2
 #EOF
