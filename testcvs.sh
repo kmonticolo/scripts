@@ -1,7 +1,7 @@
 #!/bin/sh
 # 10.12.15 kmonti
 # script for test speed of ANONCVS servers response for OpenBSD
-
+>pingidoserwerow
 ftp -o - http://www.openbsd.org/anoncvs.html |grep CVSROOT= |sed -e 's/^.*@//g' -e 's/:.*$//g' >serwery 2>/dev/null
 #curl http://www.openbsd.org/anoncvs.html |grep CVSROOT= |sed -e 's/^.*@//g' -e 's/:.*$//g' >serwery
 wait=`cat serwery|wc -l`
