@@ -959,6 +959,8 @@ alias ls='ls -F'
 alias pu=pushd
 alias pd=popd
 alias r='fc -e -' # typing .r. .r.epeats the last command
+alias top5='find . -xdev -ls | sort -n -k 7| tail -5'
+
 ###
 alias polcisdb01='ssh polcisdb01'
 alias cisdb01='ssh polcisdb01'
