@@ -5,6 +5,7 @@
 # example run: ansible hosts -m script -a "./scrfstab.sh " -s -K
 # exit code 34 - rollback 
 # exit code 19 - zmiana byla juz wykonywana (already changed)
+# tested only on RHEL 5,6
 
 unset rollback
 #rollback=1
