@@ -13,6 +13,7 @@ unset rollback
 #[[ $rollback ]] && cp -f /tmp/fstab /etc/fstab && exit 0
 [[ -f /tmp/fstabbezboot ]] && exit 19
   [[ -f /etc/fstab ]] && cp -f /etc/fstab /tmp/fstab.orig # backup
+   grep boot /etc/fstab || exit 4
    grep boot /etc/fstab | awk 'BEGIN { $2 ~ /boot/ && $4 ~ /^defaults/ } END { print $1" "$2 "\t" $3" " "defaults,nodev,noexec,nosuid" "\t" "1 2" } ' >/tmp/boot
    grep -v "/boot" /etc/fstab >/tmp/fstabbezboot
    cat /tmp/boot >>/tmp/fstabbezboot
