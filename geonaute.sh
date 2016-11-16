@@ -1,4 +1,5 @@
 #!/bin/bash
+# insert date and time into filename @kmonticolo 16.11.16
 
 rm *thm 2>/dev/null
 for file in FILE[0-9][0-9][0-9][0-9].mp4; do
