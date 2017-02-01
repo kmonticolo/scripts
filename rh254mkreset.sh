@@ -5,6 +5,7 @@ if [ -z ${num} ]; then 
   echo "please provide number of your workstation."  
   exit 1
 fi
+export num=$1
 mkdir -p ~/bin
 cat > ~/bin/reset.sh <<EOT
 #!/bin/sh
