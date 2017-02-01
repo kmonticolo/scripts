@@ -9,4 +9,7 @@ Just a bunch of scripts:
 - openbsd-kernel-vmguest.sh - disables some options in kernel, that OpenBSD runs faster as a vm guest
 - proc_nrpe.sh - script manipulates "warn" and "crit" process counts in NRPE Nagios configuration, convenient to run as ansible script
 - testcvs.sh - script for test speed of ANONCVS servers response for OpenBSD, an easy way to get the fastest ANONCVS server
-
+- rh254mkreset.sh    This simple script is userful on RedHat RH254 course and allows to:
+ - reset both server and client using "reset.sh" command, 
+ - log in without using passwords, just using pair of ssh-keys,
+ - log to servers and desktop VMs using "s" and "d" aliases.rh254mkreset.sh 
