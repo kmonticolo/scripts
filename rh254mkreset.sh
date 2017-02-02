@@ -5,6 +5,10 @@ num=`hostname -s|grep -o '.$'`
 #  echo "please provide number of your workstation."
 #  exit 1
 #fi
+if [ -z ${num} ]; then
+  echo "please provide number of your workstation."
+  exit 1
+fi
 export num=$1
 mkdir -p ~/bin
 cat > ~/bin/reset.sh <<EOT
@@ -13,8 +17,8 @@ echo "Reset desktop and server, wait 30 s."
 flag=""
 echo y|rht-vmctl reset desktop >/dev/null 2>&1 || flag="desktop"
 echo y|rht-vmctl reset server  >/dev/null 2>&1 || flag="server"
-if [ ! -z ${flag} ]; then
-  echo "ERROR: cannot restart ${flag}, exiting"
+if [ ! -z \${flag} ]; then
+  echo "ERROR: cannot restart \${flag}, exiting"
   exit 1
 fi
 
@@ -40,5 +44,5 @@ grep -qw "alias d=" ${f} || echo "alias d=\"ssh root@d${num}\"" >> ${f}
 grep -qw "alias c=" ${f} || echo "alias c=\"ssh root@d${num}\"" >> ${f}
 echo "type: source $f"
 echo "then type reset.sh to reset both server${num} and desktop${num}"
-echo "type \"s\" to login to server${num}, or \"d\" to login to desktop${num} without using passwords."
+echo "type \"s\" to login to server\${num}, or \"d\" to login to desktop\${num} without using passwords."
 
