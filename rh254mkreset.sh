@@ -11,6 +11,8 @@ break
   if [[ ! $1 =~ $re ]] ; then
     echo "please provide number of your workstation."
     exit 1
+  else
+  export num=$1
   fi
 fi
 mkdir -p ~/bin
