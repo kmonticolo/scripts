@@ -1,18 +1,18 @@
 #!/bin/bash
 # kmonticolo 16.01.17
-num=`hostname -s|grep -o '.$'`
+export num=`hostname -s|grep -o '[0-9]$'`
 #if [ -z ${num} ]; then
 #  echo "please provide number of your workstation."
 #  exit 1
 #fi
 re='^[0-9]$'
 if [[ ! $num =~ $re ]] ; then
+break
   if [[ ! $1 =~ $re ]] ; then
     echo "please provide number of your workstation."
     exit 1
   fi
 fi
-export num=$1
 mkdir -p ~/bin
 cat > ~/bin/reset.sh <<EOT
 #!/bin/sh
