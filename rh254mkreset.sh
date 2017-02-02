@@ -13,8 +13,8 @@ echo "Reset desktop and server, wait 30 s."
 flag=""
 echo y|rht-vmctl reset desktop >/dev/null 2>&1 || flag="desktop"
 echo y|rht-vmctl reset server  >/dev/null 2>&1 || flag="server"
-if [ ! -z $flag ]; then
-  echo "ERROR: cannot restart $flag, exiting"
+if [ ! -z ${flag} ]; then
+  echo "ERROR: cannot restart ${flag}, exiting"
   exit 1
 fi
 
