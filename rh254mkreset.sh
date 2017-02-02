@@ -10,8 +10,14 @@ mkdir -p ~/bin
 cat > ~/bin/reset.sh <<EOT
 #!/bin/sh
 echo "Reset desktop and server, wait 30 s."
-echo y|rht-vmctl reset desktop >/dev/null 2>&1 ||exit 1
-echo y|rht-vmctl reset server  >/dev/null 2>&1 ||exit 2
+flag=""
+echo y|rht-vmctl reset desktop >/dev/null 2>&1 || flag="desktop"
+echo y|rht-vmctl reset server  >/dev/null 2>&1 || flag="server"
+if [ ! -z $flag ]; then
+  echo "ERROR: cannot restart $flag, exiting"
+  exit 1
+fi
+
 ~/bin/keys.sh
 #ssh root@d${num} "rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm; yum install -y facter"
 exit 0
