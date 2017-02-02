@@ -7,8 +7,10 @@ num=`hostname -s|grep -o '.$'`
 #fi
 re='^[0-9]$'
 if [[ ! $num =~ $re ]] ; then
-  echo "please provide number of your workstation."
-  exit 1
+  if [[ ! $1 =~ $re ]] ; then
+    echo "please provide number of your workstation."
+    exit 1
+  fi
 fi
 export num=$1
 mkdir -p ~/bin
@@ -45,5 +47,5 @@ grep -qw "alias d=" ${f} || echo "alias d=\"ssh root@d${num}\"" >> ${f}
 grep -qw "alias c=" ${f} || echo "alias c=\"ssh root@d${num}\"" >> ${f}
 echo "type: source $f"
 echo "then type reset.sh to reset both server${num} and desktop${num}"
-echo "type \"s\" to login to server\${num}, or \"d\" to login to desktop\${num} without using passwords."
+echo "type \"s\" to login to server${num}, or \"d\" to login to desktop${num} without using passwords."
 
