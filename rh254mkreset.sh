@@ -6,7 +6,7 @@ num=`hostname -s|grep -o '.$'`
 #  exit 1
 #fi
 re='^[0-9]$'
-if [[ $num =~ $re ]] ; then
+if [[ ! $num =~ $re ]] ; then
   echo "please provide number of your workstation."
   exit 1
 fi
