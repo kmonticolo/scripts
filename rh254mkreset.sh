@@ -42,11 +42,11 @@ chmod +x ~/bin/*sh
 f=~/.bashrc
 touch ~/.bashrc
 grep -q ^.*PATH=.*~/bin ~/.bashrc || echo "export PATH=$PATH:~/bin" >> $f
-grep -qw "alias s${num}=" ${f} || echo "alias s${num}=\"ssh root@s${num}\"" >> ${f}
-grep -qw "alias d${num}=" ${f} || echo "alias d${num}=\"ssh root@d${num}\"" >> ${f}
-grep -qw "alias s=" ${f} || echo "alias s=\"ssh root@s${num}\"" >> ${f}
-grep -qw "alias d=" ${f} || echo "alias d=\"ssh root@d${num}\"" >> ${f}
-grep -qw "alias c=" ${f} || echo "alias c=\"ssh root@d${num}\"" >> ${f}
+grep -qw "alias s${num}=" ${f} || echo "alias s${num}=\"ssh root@server${num}\"" >> ${f}
+grep -qw "alias d${num}=" ${f} || echo "alias d${num}=\"ssh root@desktop${num}\"" >> ${f}
+grep -qw "alias s=" ${f} || echo "alias s=\"ssh root@server${num}\"" >> ${f}
+grep -qw "alias d=" ${f} || echo "alias d=\"ssh root@desktop${num}\"" >> ${f}
+grep -qw "alias c=" ${f} || echo "alias c=\"ssh root@desktop${num}\"" >> ${f}
 echo "type: source $f"
 echo "then type reset.sh to reset both server${num} and desktop${num}"
 echo "type \"s\" to login to server${num}, or \"d\" to login to desktop${num} without using passwords."
