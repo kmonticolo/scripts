@@ -1,8 +1,8 @@
 #!/bin/bash
 # kmonticolo 16.01.17
 num=`hostname -s|grep -o '.$'`
-if [ -z ${num} ]; then  
-  echo "please provide number of your workstation."  
+if [ -z ${num} ]; then
+  echo "please provide number of your workstation."
   exit 1
 fi
 export num=$1
