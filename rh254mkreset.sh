@@ -7,7 +7,7 @@ export num=`hostname -s|grep -o '[0-9]$'`
 #fi
 re='^[0-9]$'
 if [[ ! $num =~ $re ]] ; then
-break
+echo "hostname doesn't contain a number, how odd."
   if [[ ! $1 =~ $re ]] ; then
     echo "please provide number of your workstation."
     exit 1
