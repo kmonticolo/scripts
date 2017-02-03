@@ -13,3 +13,4 @@ Just a bunch of scripts:
  - reset both server and client using "reset.sh" command, 
  - log in without using passwords, just using pair of ssh-keys,
  - log to servers and desktop VMs using "s" and "d" aliases.rh254mkreset.sh 
+ - checksum.sh - poor man aide/tripwire replacement, using only system's binaries.
