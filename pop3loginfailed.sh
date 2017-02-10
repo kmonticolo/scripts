@@ -1,4 +1,5 @@
 #!/bin/sh
+# for munin stats
 
 log=/var/log/mail.info
 plik=/home/birkoff/public_html/pop3.txt
