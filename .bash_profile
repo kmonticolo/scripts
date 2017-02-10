@@ -27,13 +27,13 @@ export PKG_PATH=http://piotrkosoft.pl/pub/OpenBSD/5.6/packages/i386/
 # tworzenie listy sedem, lista 2polhosty jest z nagiosa
 #   for i in `cat 2polhosty |sed -e 's/^pol//g' -e 's/\..*$//'`;do echo  Host $i ;echo  HostName  pol${i}.polcard.com.pl;done >> ~/.ssh/config 
 # bash completion autouzupelnianie na podstawie z .ssh/config
-function _ssh_completion() {
+if [ -r ~/.ssh/config ] ; then
+  function _ssh_completion() {
+  perl -ne 'print "$1 " if /^Host (.+)$/' ~/.ssh/config
+  }
+  complete -W "$(_ssh_completion)" ssh
+fi
 
-perl -ne 'print "$1 " if /^Host (.+)$/' ~/.ssh/config
-
-}
-
-complete -W "$(_ssh_completion)" ssh
 
 alias s='source ~/.bash_profile'
 # dodaje alias ssh do .bash_profile (wymagane jest uzycie funkcji, zeby obsluzyc argumenty typu $1
