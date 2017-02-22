@@ -1,5 +1,6 @@
 # scripts
-Just a bunch of scripts:
+Just a bunch of scripts. Here be dragons!
+
 - audit-evidence.txt - commands used for couple of security test
 -  checkOS.sh - functions for variety security check like: check_pam; check_pass; check_pass2; check_ntp; check_envision; check_fstab; if [[ `selinuxenabled`==0 ]];then echo 'selinux ok'; else echo 'ERRor set selinux';fi check_ssh; check_banner; check_xinetd; check_ossec; check_initd;
 - copyvposlog.sh - scp logs to logserver
