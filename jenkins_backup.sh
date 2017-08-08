@@ -17,4 +17,4 @@ if [[ "$?" != "0" ]] ; then
 fi
 set -e
 
-git push origin HEAD:master
+git push --force origin HEAD:master
